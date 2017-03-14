@@ -1,14 +1,14 @@
 var express = require('express');
 var mysql = require('mysql');
+var app = express();
+var bodyParser = require('body-parser');
+var bcrypt = require('bcryptjs');
 var connection = mysql.createConnection({
   host:'localhost',
   user:'root',
   password:'',
   database:'flashcards'
 });
-var app = express();
-var bodyParser = require('body-parser');
-var bcrypt = require('bcryptjs');
 
 
 app.use(bodyParser.json());

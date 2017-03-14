@@ -1,4 +1,3 @@
-module.exports = function(app, connection){
   app.get('/flashcard', function(req, res){
     connection.query('SELECT * FROM flashcard', function(err, rows){
       if (err) {
@@ -8,6 +7,7 @@ module.exports = function(app, connection){
       res.json(rows);
     });
   });
+
   app.post('/flashcard', function(req, res){
     var query = `INSERT INTO flashcard (front_text, back_text, owner, subject)
     VALUES ('${req.body.front_text}', '${req.body.back_text}', '${req.body.owner}', '${req.body.subject}')`;
@@ -32,4 +32,7 @@ module.exports = function(app, connection){
       res.json(result);
     });
   });
-}
+
+
+
+  module.exports = function(app, connection)
